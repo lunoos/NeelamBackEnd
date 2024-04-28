@@ -1,0 +1,1 @@
+kill $(jps | grep ecom-0.0.1-SNAPSHOT.war | awk '{print $1}')
