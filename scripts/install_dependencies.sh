@@ -6,6 +6,7 @@ war_file_path="/tmp/codedeploy-deployment-staging-area/ecom-0.0.1-SNAPSHOT.war"
 
 # Check if the WAR file exists
 if [ -f "$war_file_path" ]; then
+    cd /tmp/codedeploy-deployment-staging-area/
     sudo rm ecom-0.0.1-SNAPSHOT.war
 else
     echo "WAR file not found at $war_file_path"
