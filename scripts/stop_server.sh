@@ -1,11 +1,9 @@
 #!/bin/bash
 
-# Find the process ID (PID) of the Spring Boot application
-# PID=$(pgrep -f 'ecom-0.0.1-SNAPSHOT.war')
+# Find the process ID (PID) of the running Spring Boot application
+SPRING_PID=$(ps -ef | grep "ecom-0.0.1-SNAPSHOT.war" | grep -v grep | awk '{print $2}')
 
-# if [ -n "$PID" ]; then
-#     echo "Stopping Spring Boot application with PID: $PID"
-#     kill $PID
-# else
-#     echo "Spring Boot application is not running"
-# fi
+# If the process is running, stop it
+if [ -n "$SPRING_PID" ]; then
+    sudo kill -15 $SPRING_PID
+fi
